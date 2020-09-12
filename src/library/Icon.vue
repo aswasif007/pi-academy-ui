@@ -1,5 +1,5 @@
 <template>
-  <div class="lib-icon">
+  <div class="lib-icon" @click.stop="e => $emit('click', e)">
     <component :is="SvgIcon" />
   </div>
 </template>

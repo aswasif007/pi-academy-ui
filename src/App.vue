@@ -92,7 +92,6 @@ export default {
 
     &.visible {
       display: block;
-      box-shadow: -2px 0 2px 0 var(--color2);
     }
   }
 
@@ -126,10 +125,6 @@ export default {
       z-index: 1;
     }
 
-    .left-section.visible {
-      box-shadow: 2px 0 2px 0 var(--color1);
-    }
-
     .mid-section {
       left: 0;
     }
@@ -145,10 +140,6 @@ export default {
     .right-section {
       display: block;
       z-index: 1;
-    }
-
-    .right-section.visible {
-      box-shadow: none;
     }
 
     .right-floating.visible {
