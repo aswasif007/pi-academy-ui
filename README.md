@@ -1,2 +1,2 @@
 # pi-academy-ui
-User Interface for Pi Academy
+Web Interface for Pi Academy
