@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-    <div class="top-section">
-      <Topbar @menuIconClick="showLeftSection" />
-    </div>
-    <div class="left-section" :class="{'visible': leftSectionVisible}" v-offclick="() => leftSectionVisible = false">
-      <LeftPane />
-    </div>
-    <div class="mid-section">
-      <router-view />
-    </div>
-    <div class="right-section" :class="{'visible': rightSectionVisible}" v-offclick="() => rightSectionVisible = false">
-      <RightPane />
-    </div>
-    <div class="right-floating" :class="{'visible': !rightSectionVisible}" @click.stop="showRightSection">
-      Notice Board
-    </div>
+    <router-view v-if="$route.name === 'login'" />
+    <fragment v-else>
+      <div class="top-section">
+        <Topbar @menuIconClick="showLeftSection" />
+      </div>
+      <div class="left-section" :class="{'visible': leftSectionVisible}" v-offclick="() => leftSectionVisible = false">
+        <LeftPane />
+      </div>
+      <div class="mid-section">
+        <router-view />
+      </div>
+      <div class="right-section" :class="{'visible': rightSectionVisible}" v-offclick="() => rightSectionVisible = false">
+        <RightPane />
+      </div>
+      <div class="right-floating" :class="{'visible': !rightSectionVisible}" @click.stop="showRightSection">
+        Notice Board
+      </div>
+    </fragment>
   </div>
 </template>
 
@@ -22,12 +25,14 @@
 import Topbar from '@/library/Topbar';
 import LeftPane from '@/library/LeftPane';
 import RightPane from '@/library/RightPane';
+import Fragment from '@/library/Fragment';
 
 export default {
   components: {
     Topbar,
     LeftPane,
     RightPane,
+    Fragment,
   },
   data() {
     return {
