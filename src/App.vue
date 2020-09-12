@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    Hello
+    <router-view />
   </div>
 </template>
 
@@ -12,12 +12,24 @@ body {
   display: block;
   padding: 0;
   margin: 0;
+  background: var(--color6);
 }
 
 div {
   display: block;
   padding: 0;
   margin: 0;
+}
+
+
+@font-face {
+  font-family: 'Red Rose';
+  src: url('./assets/fonts/RedRose-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'PT Serif';
+  src: url('./assets/fonts/PTSerif-Regular.ttf');
 }
 
 </style>
