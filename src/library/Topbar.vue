@@ -5,7 +5,6 @@
         class="icon menu-icon"
         @click.stop="e => $emit('menuIconClick', e)"
         name="menu"
-        :size="36"
       />
     </div>
     <div class="right">
@@ -15,7 +14,6 @@
       <Icon
         class="icon"
         name="avatar"
-        :size="36"
       />
     </div>
   </div>
@@ -60,7 +58,7 @@ export default {
 
   .menu-icon {
     fill: var(--color6);
-    padding: 4px;
+    padding: 4px 0;
     width: var(--m);
     height: var(--m);
   }
