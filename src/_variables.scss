@@ -1,4 +1,5 @@
 $small-screen-breakpoint: 800px;
+$large-screen-breakpoint: 1300px;
 
 html {
   --space_cadet: #1D3461;
@@ -43,11 +44,4 @@ html {
     --xxxs: 10px;
     --xxxxs: 6px;
   }
-}
-
-@mixin position-center {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
 }
