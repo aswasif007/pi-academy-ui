@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  pi-academy-web:
+    build: ./
+    volumes:
+      - ./:/code
+      - /code/node_modules
+    ports:
+      - 80:8080
