@@ -5,7 +5,8 @@
 </template>
 
 <style lang="scss">
-.body {
+
+body {
   width: 100%;
   height: 100%;
   display: block;
