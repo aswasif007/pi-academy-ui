@@ -1,6 +1,12 @@
 <template>
   <div class="login-page">
     <div class="left">
+      <div>
+        <Icon
+          class="logo"
+          name="pi-academy"
+        />
+      </div>
       <div class="emblem">
         Pi Academy
       </div>
@@ -36,11 +42,13 @@
 <script>
 import TextArea from '@/library/TextArea';
 import Button from '@/library/Button';
+import Icon from '@/library/Icon';
 
 export default {
   components: {
     TextArea,
     Button,
+    Icon,
   },
   data() {
     return {
@@ -84,6 +92,12 @@ export default {
     justify-content: center;
     margin-top: var(--xxxs);
   }
+
+  .logo {
+    height: calc(var(--xxxxl) * 3);
+    width: calc(var(--xxxxl) * 3);
+    display: inline-block;
+  }
 }
 
 @media only screen and (max-width: $small-screen-breakpoint) {
@@ -98,6 +112,12 @@ export default {
     .right {
       width: 100%;
       height: 60%;
+    }
+
+    .logo {
+      height: calc(var(--xxxxl) * 2);
+      width: calc(var(--xxxxl) * 2);
+      display: inline-block;
     }
   }
 }

@@ -6,6 +6,10 @@
         @click.stop="e => $emit('menuIconClick', e)"
         name="menu"
       />
+      <Icon
+        class="icon logo"
+        name="pi-academy"
+      />
     </div>
     <div class="right">
       <div class="user">
@@ -63,12 +67,29 @@ export default {
     height: var(--m);
   }
 
+  .logo {
+    padding-top: 2px;
+    display: none;
+  }
+
   .user {
     height: 100%;
     margin-right: 12px;
     font-size: var(--xs);
     color: var(--color6);
     @include position-center;
+  }
+}
+
+@media only screen and (min-width: $small-screen-breakpoint) {
+  .topbar {
+    .menu-icon {
+      display: none;
+    }
+
+    .logo {
+      display: block;
+    }
   }
 }
 </style>
