@@ -1,0 +1,35 @@
+html {
+  --space_cadet: #1D3461;
+  --yale_blue: #1F487E;
+  --queen_blue: #376996;
+  --un_blue: #6290C8;
+  --cerulean_frost: #829CBC;
+  --cerulean_frost_lite: #D6DFEB;
+
+  --xxxxl: 48px;
+  --xxxl: 44px;
+  --xxl: 40px;
+  --xl: 36px;
+  --l: 32px;
+  --m: 28px;
+  --s: 24px;
+  --xs: 20px;
+  --xxs: 16px;
+  --xxxs: 12px;
+  --xxxxs: 8px;
+
+  --color1: var(--space_cadet);
+  --color2: var(--yale_blue);
+  --color3: var(--queen_blue);
+  --color4: var(--un_blue);
+  --color5: var(--cerulean_frost);
+  --color6: var(--cerulean_frost_lite);
+  --color7: white;
+}
+
+@mixin position-center {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+}
