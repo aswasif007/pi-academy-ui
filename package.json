@@ -22,7 +22,8 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "vue-click-outside": "^1.1.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-svg-loader": "^0.16.0",
+    "vue-template-compiler": "^2.6.12"
   },
   "browserslist": [
     "> 1%",
