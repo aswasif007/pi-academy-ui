@@ -18,6 +18,7 @@ export default {
   text-align: justify;
   font-family: 'Quattrocento Sans';
   color: var(--color3);
+  line-height: 1.5;
 
   &.xsm {
     font-size: var(--xxxs);

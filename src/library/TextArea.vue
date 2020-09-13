@@ -47,7 +47,7 @@ export default {
 
     &:focus {
       outline: none;
-      border-color: var(--color3);
+      border-color: var(--color4);
     }
 
     &::placeholder {
@@ -55,6 +55,9 @@ export default {
     }
   }
 
+  textarea {
+    resize: none;
+  }
 
   &.sm {
     font-size: var(--xxs);
