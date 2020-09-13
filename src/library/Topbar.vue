@@ -15,7 +15,7 @@
       <div class="user">
         John Doe
       </div>
-      <Icon
+      <Avatar
         class="icon"
         name="avatar"
       />
@@ -25,10 +25,12 @@
 
 <script>
 import Icon from '@/library/Icon';
+import Avatar from '@/library/Avatar';
 
 export default {
   components: {
     Icon,
+    Avatar,
   }
 }
 </script>
