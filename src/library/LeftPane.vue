@@ -2,7 +2,7 @@
   <div class="left-pane">
     <div v-for="nav in navs"
       class="option"
-      @click="$router.push(nav.route)"
+      @click="pushRoute(nav.route)"
       :class="{'selected': $route.name === nav.route}"
       :key="nav.label">
       {{ nav.label }}
@@ -27,6 +27,13 @@ export default {
   computed: {
     navs() {
       return Navs;
+    }
+  },
+  methods: {
+    pushRoute(route) {
+      if (this.$route.name !== route) {
+        this.$router.push(route);
+      }
     }
   }
 }
