@@ -8,7 +8,7 @@
       />
       <Icon
         class="icon logo"
-        name="pi-academy"
+        name="pi-academy-small"
       />
     </div>
     <div class="right">
