@@ -1,10 +1,14 @@
 <template>
   <div class="lib-discussion" :class="size">
     <People
+      class="people"
       :name="author.name"
       :category="author.category"
       :size="size"
     />
+    <div class="datetime">
+      {{ datetime | fromNow }}
+    </div>
     <TextContent class="text" :size="size">
       <slot />
     </TextContent>
@@ -19,6 +23,7 @@ export default {
   props: {
     author: { type: Object, required: true },
     size: { validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md' },
+    datetime: { type: Date },
   },
   components: {
     People,
@@ -30,6 +35,28 @@ export default {
 <style lang="scss" scoped>
 .lib-discussion {
   display: block;
+
+  .people {
+    display: inline-block;
+  }
+
+  .datetime {
+    float: right;
+    font-family: 'PT Serif';
+    color: var(--color4);
+  }
+
+  &.sm > .datetime {
+    font-size: var(--xxxs);
+  }
+
+  &.md > .datetime {
+    font-size: calc(var(--xxs) - 2px);
+  }
+
+  &.lg > .datetime {
+    font-size: var(--xxs);
+  }
 
   .text {
     position: relative;

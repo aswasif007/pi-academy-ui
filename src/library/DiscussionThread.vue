@@ -2,7 +2,8 @@
   <div class="lib-discussion-thread">
     <Discussion
       size="md"
-      :author="discussion.post.author">
+      :author="discussion.post.author"
+      :datetime="discussion.post.createdAt">
       {{ discussion.post.body }}      
       <hr />
       <DiscussionInput
@@ -14,11 +15,11 @@
       <Discussion v-for="comment in discussion.comments" :key="comment.guid"
         class="comment"
         size="sm"
-        :author="comment.author">
+        :author="comment.author"
+        :datetime="comment.createdAt">
         {{ comment.body }}
       </Discussion>
     </Discussion>
-    <hr>
   </div>
 </template>
 
@@ -53,12 +54,6 @@ export default {
       top: calc(var(--l) / 2 - 4px);
       border-radius: 50%;
     }
-  }
-
-  hr {
-    border: none;
-    background: var(--color4);
-    height: 1px;
   }
 }
 </style>
