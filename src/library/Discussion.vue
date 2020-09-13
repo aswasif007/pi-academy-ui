@@ -94,4 +94,16 @@ export default {
     }
   }
 }
+
+@media only screen and (max-width: $small-screen-breakpoint) {
+  .lib-discussion {
+    &.sm > .text {
+      padding-left: 0;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+}
 </style>
