@@ -1,6 +1,7 @@
 <template>
-  <div class="lib-textarea" :class="`${size}`">
-    <input :type="type" :placeholder="placeholder" :value="value" @input="onChange">
+  <div class="lib-textarea" :class="`${size} ${type}`">
+    <textarea v-if="type === 'multiline'" :placeholder="placeholder" :value="value" />
+    <input v-else :type="type" :placeholder="placeholder" :value="value" @input="onChange">
   </div>
 </template>
 
@@ -8,7 +9,7 @@
 export default {
   props: {
     placeholder: { type: String },
-    type: { type: String, default: 'text' },
+    type: { type: String, validator: val => ['text', 'password', 'multiline'].includes(val), default: 'text' },
     size: { type: String, validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md'}
   },
   data() {
@@ -32,7 +33,7 @@ export default {
   border-radius: 3px;
   color: var(--color3);
 
-  input {
+  input, textarea {
     width: 100%;
     border: 1px solid transparent;
     font-size: inherit;
@@ -42,6 +43,7 @@ export default {
     text-align: inherit;
     padding: 0 var(--xxxxs);
     background: var(--color7);
+    line-height: inherit;
 
     &:focus {
       outline: none;
@@ -57,16 +59,31 @@ export default {
   &.sm {
     font-size: var(--xxs);
     height: var(--l);
+    line-height: calc(var(--l) - 2px);
   }
 
   &.md {
     font-size: var(--xs);
-    height: var(--xl);
+    height: var(--xxl);
+    line-height: calc(var(--xxl) - 2px);
   }
 
   &.lg {
     font-size: var(--s);
-    height: var(--xxl);
+    height: var(--xxxxl);
+    line-height: calc(var(--xxxxl) - 2px);
+  }
+
+  &.multiline.sm {
+    height: calc(var(--l) * 2);
+  }
+
+  &.multiline.md {
+    height: calc(var(--xxl) * 2);
+  }
+
+  &.multiline.lg {
+    height: calc(var(--xxxxl) * 2);
   }
 }
 </style>

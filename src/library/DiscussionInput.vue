@@ -1,0 +1,46 @@
+<template>
+  <div class="lib-discussion-input">
+    <TextArea
+      class="text"
+      type="multiline"
+      :placeholder="placeholder"
+      :size="size"
+    />
+    <Button
+      class="btn-post"
+      type="primary"
+      label="Post"
+      :size="size"
+    />
+  </div>
+</template>
+
+<script>
+import TextArea from '@/library/TextArea';
+import Button from '@/library/Button';
+
+export default {
+  props: {
+    size: { validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md' },
+    placeholder: { type: String },
+  },
+  components: {
+    TextArea,
+    Button,
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+.lib-discussion-input {
+  width: 100%;
+
+  .text {
+    width: 100%;
+  }
+
+  .btn-post {
+    margin-top: var(--xxs);
+  }
+}
+</style>
