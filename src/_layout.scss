@@ -25,6 +25,12 @@ div {
   src: url('~@/assets/fonts/PTSerif-Regular.ttf');
 }
 
+
+@font-face {
+  font-family: 'Quattrocento Sans';
+  src: url('~@/assets/fonts/QuattrocentoSans-Regular.ttf');
+}
+
 @mixin position-center {
   display: flex;
   text-align: center;
