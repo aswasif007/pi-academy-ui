@@ -9,7 +9,7 @@
     <Button
       class="btn-post"
       type="primary"
-      label="Post"
+      :label="actionLabel"
       :size="size"
     />
   </div>
@@ -23,6 +23,7 @@ export default {
   props: {
     size: { validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md' },
     placeholder: { type: String },
+    actionLabel: { type: String, required: true },
   },
   components: {
     TextArea,
