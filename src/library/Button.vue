@@ -53,7 +53,7 @@ export default {
 
   &.sm {
     font-size: var(--xxs);
-    height: var(--l);
+    height: var(--m);
   }
 
   &.md {
