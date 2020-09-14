@@ -13,11 +13,11 @@
     </div>
     <div class="right">
       <div class="user">
-        John Doe
+        {{ currentUser.name }}
       </div>
       <Avatar
         class="icon"
-        name="avatar"
+        :imgSrc="currentUser.avatar"
       />
     </div>
   </div>
@@ -28,6 +28,11 @@ import Icon from '@/library/Icon';
 import Avatar from '@/library/Avatar';
 
 export default {
+  computed: {
+    currentUser() {
+      return this.$store.users.getters.currentUser;
+    },
+  },
   components: {
     Icon,
     Avatar,
