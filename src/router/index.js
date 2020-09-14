@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Login from '@/pages/login/Login';
 import Home from '@/pages/home/Home';
+import Browse from '@/pages/browse/Browse';
 
 Vue.use(VueRouter);
 
@@ -16,6 +17,11 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home,
+  },
+  {
+    path: '/browse',
+    name: 'browse',
+    component: Browse,
   },
 ];
 
