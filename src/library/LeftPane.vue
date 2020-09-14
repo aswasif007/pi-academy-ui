@@ -9,8 +9,8 @@
     </div>
     <div class="option courses">
       Courses
-      <div class="course">
-        CS-102
+      <div v-for="course in courses" :key="course.guid" class="course">
+        {{ course.code }}
       </div>
     </div>
   </div>
@@ -24,9 +24,15 @@ const Navs = [
 ];
 
 export default {
+  mounted() {
+    this.$store.courses.dispatch('reloadEnrolledCourses');
+  },
   computed: {
     navs() {
       return Navs;
+    },
+    courses() {
+      return this.$store.courses.getters.enrolledCourses;
     }
   },
   methods: {
