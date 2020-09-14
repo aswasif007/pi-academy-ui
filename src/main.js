@@ -14,8 +14,14 @@ Vue.filter('fromNow', value => {
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+
+async function initiateApp() {
+  await store.users.dispatch('reloadCurrentUser');
+  new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount('#app');
+}
+
+initiateApp();

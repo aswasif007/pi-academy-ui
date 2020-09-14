@@ -1,15 +1,9 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import courses from './courses';
+import discussions from './discussions';
+import users from './users';
 
-Vue.use(Vuex)
-
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
-})
+export default {
+  courses,
+  discussions,
+  users,
+};
