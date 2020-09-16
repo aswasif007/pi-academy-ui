@@ -5,7 +5,10 @@ import router from './router'
 import store from './store'
 import ClickOutside from 'vue-click-outside'
 import moment from 'moment';
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
 
+Vue.use(VueLodash, { lodash })
 Vue.directive('offclick', ClickOutside)
 Vue.filter('fromNow', value => {
   const datetime = new Date(value);
