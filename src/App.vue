@@ -6,7 +6,7 @@
         <Topbar @menuIconClick="showLeftSection" />
       </div>
       <div class="left-section" :class="{'visible': leftSectionVisible}" v-offclick="() => leftSectionVisible = false">
-        <LeftPane />
+        <LeftPane @select="leftSectionVisible = false" />
       </div>
       <div class="mid-section">
         <router-view />

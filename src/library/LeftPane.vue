@@ -45,6 +45,8 @@ export default {
       if (this.$route.name !== routeName || !_.isEqual(this.$route.params, params)) {
         this.$router.push({ name: routeName, params });
       }
+
+      this.$emit('select');
     }
   }
 }
