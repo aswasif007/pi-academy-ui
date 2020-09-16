@@ -57,7 +57,7 @@ export default {
   width: 100%;
   height: 100%;
   background: var(--color2);
-  padding: 12px 0 0 0;
+  padding: var(--xl) 0 0 0;
 
   .option {
     line-height: var(--xxxxl);

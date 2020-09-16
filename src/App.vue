@@ -14,8 +14,9 @@
       <div class="right-section" :class="{'visible': rightSectionVisible}" v-offclick="() => rightSectionVisible = false">
         <RightPane />
       </div>
-      <div class="right-floating" :class="{'visible': !rightSectionVisible}" @click.stop="showRightSection">
-        Notice Board
+      <div class="right-floating" @click.stop="showRightSection">
+        Dashboard
+        <Icon class="arrow-icon" name="arrow" />
       </div>
     </fragment>
   </div>
@@ -26,6 +27,7 @@ import Topbar from '@/library/Topbar';
 import LeftPane from '@/library/LeftPane';
 import RightPane from '@/library/RightPane';
 import Fragment from '@/library/Fragment';
+import Icon from '@/library/Icon';
 
 export default {
   components: {
@@ -33,6 +35,7 @@ export default {
     LeftPane,
     RightPane,
     Fragment,
+    Icon,
   },
   data() {
     return {
@@ -57,7 +60,9 @@ export default {
 #app {
   .top-section {
     position: fixed;
-    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
     height: var(--xxxl);
   }
 
@@ -65,7 +70,7 @@ export default {
     top: var(--xxxl);
     left: 0;
     width: 260px;
-    height: calc(100vh - var(--xxxl));
+    bottom: 0;
     position: fixed;
 
     &.visible {
@@ -74,10 +79,10 @@ export default {
   }
 
   .mid-section {
-    top: var(--xxxl);
+    top: calc(var(--xxxl) + var(--xl));
     left: 260px;
     right: 0;
-    height: calc(100vh - var(--xxxl));
+    bottom: 0;
     position: fixed;
     overflow: auto;
   }
@@ -86,9 +91,10 @@ export default {
     top: var(--xxxl);
     right: 0;
     width: 300px;
-    height: calc(100vh - var(--xxxl));
+    bottom: 0;
     position: fixed;
     display: none;
+    z-index: 1;
 
     &.visible {
       display: block;
@@ -97,24 +103,28 @@ export default {
 
   .right-floating {
     position: fixed;
-    top: calc(var(--xxxl) * 1);
+    top: var(--xxxl);
+    left: 260px;
     right: 0;
+    height: var(--xl);
     background: var(--color3);
     padding: var(--xxxxs) var(--xxxs);
-    border-radius: 3px 3px 0 0;
-    transform: rotateZ(-90deg);
-    transform-origin: 100% 100%;
     color: var(--color6);
     font-weight: bold;
-    display: none;
+    font-size: var(--xxs);
+    text-align: right;
 
     &:hover {
       cursor: pointer;
     }
+  }
 
-    &.visible {
-      display: block;
-    }
+  .arrow-icon {
+    float: right;
+    fill: var(--color6);
+    margin-left: var(--xxxxs);
+    height: var(--xs);
+    width: var(--xs);
   }
 }
 
@@ -127,6 +137,12 @@ export default {
 
     .mid-section {
       left: 0;
+      top: calc(var(--xxxl) + var(--l));
+    }
+
+    .right-floating {
+      left: 0;
+      height: var(--l);
     }
   }
 }
@@ -134,15 +150,15 @@ export default {
 @media only screen and (min-width: $large-screen-breakpoint) {
   #app {
     .mid-section {
+      top: var(--xxxl);
       right: 300px;
     }
 
     .right-section {
       display: block;
-      z-index: 1;
     }
 
-    .right-floating.visible {
+    .right-floating {
       display: none;
     }
   }
