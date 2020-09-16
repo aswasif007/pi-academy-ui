@@ -7,7 +7,7 @@ export {
 };
 
 const user = {
-  id: '2e1ca4',
+  guid: '2e1ca4',
   name: 'John Doe Jr.',
   category: 'Professor',
 };

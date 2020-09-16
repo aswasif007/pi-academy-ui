@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import Login from '@/pages/login/Login';
 import Home from '@/pages/home/Home';
 import Browse from '@/pages/browse/Browse';
+import Profile from '@/pages/profile/Profile';
 
 Vue.use(VueRouter);
 
@@ -22,6 +23,11 @@ const routes = [
     path: '/browse',
     name: 'browse',
     component: Browse,
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: Profile,
   },
 ];
 
