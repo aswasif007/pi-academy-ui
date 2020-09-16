@@ -9,7 +9,10 @@
     </div>
     <div class="option courses">
       Courses
-      <div v-for="course in courses" :key="course.guid" class="course">
+      <div v-for="course in courses" :key="course.guid"
+        class="course"
+        :class="{'selected': $route.name === 'enrolled-course' && $route.params.courseGuid === course.guid}"
+        @click="pushRoute('enrolled-course', { courseGuid: course.guid })">
         {{ course.code }}
       </div>
     </div>
@@ -17,6 +20,8 @@
 </template>
 
 <script>
+import _ from 'lodash';
+
 const Navs = [
   { label: 'Home', route: 'home', selected: true },
   { label: 'Browse', route: 'browse' },
@@ -36,9 +41,9 @@ export default {
     }
   },
   methods: {
-    pushRoute(route) {
-      if (this.$route.name !== route) {
-        this.$router.push(route);
+    pushRoute(routeName, params = {}) {
+      if (this.$route.name !== routeName || !_.isEqual(this.$route.params, params)) {
+        this.$router.push({ name: routeName, params });
       }
     }
   }
