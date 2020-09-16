@@ -31,13 +31,15 @@
       <div class="section-title">
         Achievements
       </div>
-      <TextContent size="md">
+      <TextContent size="sm">
         <span v-for="code in currentUserProfile.achievements" :key="code" class="pill">
           {{ code }}
         </span>
       </TextContent>
     </div>
-    <Button label="Change Password" type="primary" />
+    <div class="actions">
+      <Button label="Change Password" type="primary" />
+    </div>
   </div>
 </template>
 
@@ -118,6 +120,10 @@ export default {
     border: 1px solid;
     border-radius: 3px;
     padding: 2px 4px;
+  }
+
+  .actions {
+    margin-top: var(--s);
   }
 }
 
