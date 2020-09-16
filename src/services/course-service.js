@@ -5,9 +5,15 @@ function getEnrolledCourses() {
 function getAllCourses() {
   return new Promise(resolve => resolve(allCourses));
 }
+
+function getCourseMeta(courseGuid) {
+  return new Promise(resolve => resolve(courseMeta[courseGuid]));
+}
+
 export {
   getEnrolledCourses,
   getAllCourses,
+  getCourseMeta,
 };
 
 const courses = [
@@ -63,3 +69,16 @@ const allCourses = [
     ],
   },
 ];
+
+const courseMeta = {
+  'e1c41': {
+    code: 'UI-101',
+    title: 'Introduction to UI',
+    guid: 'e1c41',
+  },
+  'e1c42': {
+    code: 'CS-102',
+    title: 'Introduction to CS',
+    guid: 'e1c42',
+  }
+};

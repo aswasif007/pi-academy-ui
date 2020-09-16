@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getEnrolledCourses, getAllCourses } from '../services/course-service';
+import { getEnrolledCourses, getAllCourses, getCourseMeta } from '../services/course-service';
 
 Vue.use(Vuex);
 
@@ -8,6 +8,7 @@ export default new Vuex.Store({
   state: {
     enrolledCourses: [],
     allCourses: [],
+    courseMeta: {},
   },
   mutations: {
     setEnrolledCourses(state, courses) {
@@ -15,6 +16,9 @@ export default new Vuex.Store({
     },
     setAllCourses(state, courses) {
       state.allCourses = courses;
+    },
+    setCourseMeta(state, meta) {
+      state.courseMeta = {...state.courseMeta, [meta.guid]: meta};
     }
   },
   actions: {
@@ -23,6 +27,9 @@ export default new Vuex.Store({
     },
     async reloadAllCourses({ commit }) {
       commit('setAllCourses', await getAllCourses());
+    },
+    async reloadCourseMeta({ commit }, courseGuid) {
+      commit('setCourseMeta', await getCourseMeta(courseGuid));
     }
   },
   modules: {
@@ -30,5 +37,6 @@ export default new Vuex.Store({
   getters: {
     enrolledCourses: state => state.enrolledCourses,
     allCourses: state => state.allCourses,
+    courseMeta: state => state.courseMeta,
   },
 });

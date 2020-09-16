@@ -2,8 +2,13 @@ function getHomeThreads() {
   return new Promise(resolve => resolve(discussions));
 };
 
+function getCourseThread(courseGuid) {
+  return new Promise(resolve => resolve(discussions));
+};
+
 export {
   getHomeThreads,
+  getCourseThread,
 };
 
 
