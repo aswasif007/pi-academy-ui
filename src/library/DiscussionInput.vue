@@ -5,12 +5,14 @@
       type="multiline"
       :placeholder="placeholder"
       :size="size"
+      v-model="value"
     />
     <Button
       class="btn-post"
       type="primary"
       :label="actionLabel"
       :size="size"
+      @click="onSubmit"
     />
   </div>
 </template>
@@ -24,6 +26,15 @@ export default {
     size: { validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md' },
     placeholder: { type: String },
     actionLabel: { type: String, required: true },
+  },
+  data() {
+    return { value: '' };
+  },
+  methods: {
+    onSubmit() {
+      this.$emit('submit', this.value);
+      this.value = '';
+    }
   },
   components: {
     TextArea,
