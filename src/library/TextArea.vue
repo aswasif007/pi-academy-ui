@@ -1,6 +1,6 @@
 <template>
   <div class="lib-textarea" :class="`${size} ${type}`">
-    <textarea v-if="type === 'multiline'" :placeholder="placeholder" :value="value" />
+    <textarea v-if="type === 'multiline'" :placeholder="placeholder" :value="value" @input="onChange" />
     <input v-else :type="type" :placeholder="placeholder" :value="value" @input="onChange">
   </div>
 </template>
@@ -8,14 +8,10 @@
 <script>
 export default {
   props: {
+    value: { type: String },
     placeholder: { type: String },
     type: { type: String, validator: val => ['text', 'password', 'multiline'].includes(val), default: 'text' },
     size: { type: String, validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md'}
-  },
-  data() {
-    return {
-      value: '',
-    };
   },
   methods: {
     onChange(e) {
