@@ -3,8 +3,8 @@
     <div class="lib-people" :class="size">
       <Avatar class="avatar" :imgSrc="imgSrc" />
       <div class="info">
-        <p class="name">John Doe</p>
-        <p v-if="category" class="category">{{ category }}</p>
+        <p class="name" :style="style__name">John Doe</p>
+        <p v-if="category" class="category" :style="style__category">{{ category }}</p>
       </div>
     </div>
   </div>
@@ -19,6 +19,8 @@ export default {
     name: { type: String, required: true },
     category: { type: String },
     size: { validator: val => ['sm', 'md', 'lg'].includes(val), default: 'md' },
+    style__name: { type: Object },
+    style__category: { type: Object },
   },
   components: {
     Avatar,

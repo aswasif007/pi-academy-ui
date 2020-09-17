@@ -75,10 +75,32 @@ const courseMeta = {
     code: 'UI-101',
     title: 'Introduction to UI',
     guid: 'e1c41',
+    status: 'open',
+    members: [],
+    instructors: [
+      { guid: 'abc20', category: 'Curator', name: 'Jane Foe'},
+    ]
   },
   'e1c42': {
     code: 'CS-102',
     title: 'Introduction to CS',
     guid: 'e1c42',
+    status: 'closed',
+    members: [
+      { guid: 'abc12', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc13', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc14', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc15', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc16', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc17', category: 'Student', name: 'Bob Fisher'},
+      { guid: 'abc18', category: 'Professor', name: 'Dave Fisher'},
+      { guid: 'abc19', category: 'Professor', name: 'Cave Fisher'},
+      { guid: 'abc20', category: 'Curator', name: 'Jane Foe'},
+    ],
+    instructors: [
+      { guid: 'abc18', category: 'Professor', name: 'Dave Fisher'},
+      { guid: 'abc19', category: 'Professor', name: 'Cave Fisher'},
+      { guid: 'abc20', category: 'Curator', name: 'Jane Foe'},
+    ]
   }
 };
