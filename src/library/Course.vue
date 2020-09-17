@@ -1,19 +1,19 @@
 <template>
   <div class="lib-course">
-    <TextContent class="title" size="xlg">{{ course.code }}: {{ course.title }}</TextContent>
+    <TextContent class="title" size="xl">{{ course.code }}: {{ course.title }}</TextContent>
     <TextContent class="description" size="md">
       {{ course.description }}
       <span v-if="!expanded" @click="expanded = true">See more</span>
     </TextContent>
     <div class="more" v-if="expanded">
       <div class="details">
-        <TextContent class="section entry" size="xxs">What you will learn:</TextContent>
-        <TextContent v-for="takeaway in course.takeaways" :key="takeaway" class="entry" size="xxs">- {{ takeaway }}</TextContent>
+        <TextContent class="section entry" size="sm">What you will learn:</TextContent>
+        <TextContent v-for="takeaway in course.takeaways" :key="takeaway" class="entry" size="sm">- {{ takeaway }}</TextContent>
         <br>
-        <TextContent class="section entry" size="xxs">Course outline:</TextContent>
-        <TextContent v-for="entry in course.outlines" :key="entry" class="entry" size="xxs">- {{ entry }}</TextContent>
+        <TextContent class="section entry" size="sm">Course outline:</TextContent>
+        <TextContent v-for="entry in course.outlines" :key="entry" class="entry" size="sm">- {{ entry }}</TextContent>
         <br>
-        <TextContent class="section entry" size="xxs">
+        <TextContent class="section entry" size="sm">
           Tags:
           <span v-for="tag in course.tags" :key="tag">{{ tag }}</span>
         </TextContent>
@@ -72,6 +72,7 @@ export default {
   .more {
     position: relative;
     padding-left: var(--xs);
+    margin-top: var(--xxxs);
 
     &:before {
       content: '';

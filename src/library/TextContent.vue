@@ -7,7 +7,7 @@
 <script>
 export default {
   props: {
-    size: { validator: val => ['xsm', 'sm', 'md', 'lg', 'xlg'].includes(val), default: 'md' }
+    size: { validator: val => ['xs', 'sm', 'md', 'lg', 'xl'].includes(val), default: 'md' }
   }
 }
 </script>
@@ -20,7 +20,7 @@ export default {
   color: var(--color3);
   line-height: 1.5;
 
-  &.xsm {
+  &.xs {
     font-size: var(--xxxs);
     margin: 0 0 var(--xxxxs) 0;
   }
@@ -40,7 +40,7 @@ export default {
     margin: 0 0 var(--xxxs) 0;
   }
 
-  &.xlg {
+  &.xl {
     font-size: var(--m);
     margin: 0 0 var(--xxs) 0;
   }

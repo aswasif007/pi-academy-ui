@@ -10,6 +10,7 @@
     </TextContent>
     <div class="instructors">
       <People v-for="user in course.instructors" :key="user.guid"
+        class="people"
         :style__name="{ color: 'var(--color6)'}"
         :style__category="{ color: 'var(--color5)'}"
         :imgSrc="user.avatar"
@@ -73,6 +74,10 @@ export default {
 
   .avatar {
     margin: var(--xxxs) 4px;
+  }
+
+  .people {
+    margin: var(--xxxs) 0;
   }
 
   .members {
