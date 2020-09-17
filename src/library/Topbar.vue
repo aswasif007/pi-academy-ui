@@ -8,6 +8,7 @@
       />
       <Icon
         class="icon logo"
+        @click.stop="goToHome"
         name="pi-academy-small"
       />
     </div>
@@ -18,7 +19,14 @@
       <Avatar
         class="icon"
         :imgSrc="currentUser.avatar"
+        @click.stop="showOptions = true"
       />
+    </div>
+    <div v-if="showOptions" class="options" v-offclick="() => showOptions = false">
+      <hr>
+      <div @click.stop="goToProfile">Profile</div>
+      <div @click.stop="logout">Logout</div>
+      <hr>
     </div>
   </div>
 </template>
@@ -28,9 +36,29 @@ import Icon from '@/library/Icon';
 import Avatar from '@/library/Avatar';
 
 export default {
+  data() {
+    return { showOptions: false };
+  },
   computed: {
     currentUser() {
       return this.$store.users.getters.currentUser;
+    },
+  },
+  methods: {
+    goToProfile() {
+      this.showOptions = false;
+      if (this.$route.name !== 'profile') {
+        this.$router.push({ name: 'profile' });
+      }
+    },
+    goToHome() {
+      if (this.$route.name !== 'home') {
+        this.$router.push({ name: 'home' });
+      }
+    },
+    logout() {
+      this.showOptions = false;
+      this.$router.push({ name: 'login' });
     },
   },
   components: {
@@ -46,16 +74,13 @@ export default {
   height: 100%;;
   background: var(--color1);
   display: flex;
+  position: relative;
 
   .left, .right {
     width: 50%;
     padding: 4px 8px;
     display: flex;
     padding: 4px var(--xxxs);
-    
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   .right {
@@ -65,6 +90,10 @@ export default {
   .icon {
     width: var(--xl);
     height: var(--xl);
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .menu-icon {
@@ -85,6 +114,32 @@ export default {
     font-size: var(--xs);
     color: var(--color6);
     @include position-center;
+  }
+
+  .options {
+    position: absolute;
+    background: var(--color2);
+    right: 0;
+    top: 100%;
+    color: var(--color6);
+    padding: var(--xxxs) 0;
+    font-size: var(--xs);
+    font-family: 'Red Rose';
+    box-shadow: 0 0 4px 2px var(--color1);
+    text-align: right;
+
+    div {
+      padding: var(--xxxs);
+
+      &:hover {
+        background: var(--color1);
+        cursor: pointer;
+      }
+    }
+
+    hr {
+      margin: 0 8px;
+    }
   }
 }
 

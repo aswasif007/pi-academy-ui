@@ -64,6 +64,7 @@ export default {
     left: 0;
     right: 0;
     height: var(--xxxl);
+    z-index: 2;
   }
 
   .left-section {
