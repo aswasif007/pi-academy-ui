@@ -3,7 +3,7 @@
     <div class="lib-people" :class="size">
       <Avatar class="avatar" :imgSrc="imgSrc" />
       <div class="info">
-        <p class="name" :style="style__name">John Doe</p>
+        <p class="name" :style="style__name">{{ name }}</p>
         <p v-if="category" class="category" :style="style__category">{{ category }}</p>
       </div>
     </div>
