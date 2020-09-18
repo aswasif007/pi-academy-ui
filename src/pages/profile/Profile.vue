@@ -1,12 +1,12 @@
 <template>
   <div class="profile-page" v-if="currentUserProfile">
     <div class="top">
-      <Avatar class="avatar" />
+      <Avatar class="avatar" :imgSrc="currentUser.avatar" />
       <div class="intro">
         <div class="name">
-          {{ currentUserProfile.name }}
+          {{ currentUser.name }}
         </div>
-        <div class="attr">{{ currentUserProfile.category }}</div>
+        <div class="attr">{{ currentUser.category }}</div>
       </div>
     </div>
     <div class="body">
@@ -26,7 +26,7 @@
         Email
       </div>
       <TextContent size="md">
-        {{ currentUserProfile.email }}
+        {{ currentUser.email }}
       </TextContent>
       <div class="section-title">
         Achievements
