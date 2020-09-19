@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getRecentEvents } from '../services/event-service';
 
 import { Event } from '../resources/event';
 import { getObjFromArray } from '../utils';
