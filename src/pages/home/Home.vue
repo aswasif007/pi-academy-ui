@@ -4,6 +4,8 @@
       class="new-post"
       placeholder="Post something..."
       actionLabel="Post"
+      v-model="post"
+      @submit="savePost"
     />
     <hr class="line">
     <div>
@@ -24,8 +26,16 @@ export default {
     DiscussionInput,
     DiscussionThread,
   },
+  data() {
+    return { post: '' };
+  },
   mounted() {
     this.$store.discussions.dispatch('reloadHomeThreads');
+  },
+  methods: {
+    savePost(post) {
+      this.$store.discussions.dispatch('storeNewPost', { post });
+    }
   },
   computed: {
     threads() {

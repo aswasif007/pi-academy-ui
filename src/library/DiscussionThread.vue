@@ -10,6 +10,7 @@
         size="sm"
         placeholder="Send a reply..."
         actionLabel="Comment"
+        @submit="sendReply"
       />
       <hr />
       <Discussion v-for="comment in discussion.comments" :key="comment.guid"
@@ -30,6 +31,11 @@ import DiscussionInput from '@/library/DiscussionInput';
 export default {
   props: {
     discussion: { type: Object, required: true },
+  },
+  methods: {
+    sendReply(value) {
+      this.$store.discussions.dispatch('storeThreadComment', { threadGuid: this.discussion.guid, comment: value });
+    }
   },
   components: {
     Discussion,

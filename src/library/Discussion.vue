@@ -5,6 +5,7 @@
       :name="author.name"
       :category="author.category"
       :size="size"
+      :imgSrc="author.avatar"
     />
     <div class="datetime">
       {{ datetime | fromNow }}

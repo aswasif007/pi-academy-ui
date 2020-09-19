@@ -1,5 +1,7 @@
-import Data from '.';
+import { Data } from '.';
 import faker from 'faker';
+import users from '../store/users';
+
 import _ from 'lodash';
 
 class User extends Data {
@@ -14,8 +16,24 @@ class User extends Data {
     };
   };
 
+  get vuexStore() {
+    return users;
+  }
+
+  get vuexState() {
+    return 'userObjs';
+  }
+
+  get vuexMutation() {
+    return 'ADD_USERS';
+  }
+
   static getCurrentUser() {
-    return new Promise(resolve => resolve(new User(fakeUsers[0])));
+    return new Promise(resolve => {
+      const user = new User(fakeUsers[0]);
+      this.prototype.vuexStore.commit('SET_CURRENT_USER_GUID', user.guid);
+      resolve(user);
+    });
   }
 }
 
@@ -29,6 +47,18 @@ class UserProfile extends Data {
       achievements: Array,
     };
   };
+
+  get vuexStore() {
+    return users;
+  }
+
+  get vuexState() {
+    return 'userProfileObjs';
+  }
+
+  get vuexMutation() {
+    return 'ADD_USER_PROFILES';
+  }
 
   static getOne(guid) {
     return new Promise(resolve => {

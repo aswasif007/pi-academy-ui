@@ -24,14 +24,11 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    async reloadCurrentUser({ commit }) {
-      const user = await User.getCurrentUser();
-      commit('ADD_USERS', [ user ]);
-      commit('SET_CURRENT_USER_GUID', user.guid);
+    async reloadCurrentUser(store) {
+      await User.getCurrentUser();
     },
-    async reloadUserProfile({ commit }, userGuid) {
-      const profile = await UserProfile.getOne(userGuid);
-      commit('ADD_USER_PROFILES', [ profile ]);
+    async reloadUserProfile(store, userGuid) {
+      await UserProfile.getOne(userGuid);
     },
   },
   modules: {

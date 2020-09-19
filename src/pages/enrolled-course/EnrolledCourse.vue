@@ -6,6 +6,8 @@
       class="new-post"
       placeholder="Post something..."
       actionLabel="Post"
+      v-model="post"
+      @submit="savePost"
     />
     <hr class="line">
     <div v-if="threads">
@@ -25,6 +27,9 @@ export default {
   props: {
     courseGuid: { type: String, required: true },
   },
+  data() {
+    return { post: '' };
+  },
   mounted() {
     this.loadData();
   },
@@ -32,6 +37,9 @@ export default {
     loadData() {
       this.$store.discussions.dispatch('reloadCourseThreads', this.courseGuid);
       this.$store.courses.dispatch('reloadCourseMeta', this.courseGuid);
+    },
+    savePost(post) {
+      this.$store.discussions.dispatch('storeNewPost', { post, courseGuid: this.courseGuid });
     }
   },
   computed: {
