@@ -1,6 +1,6 @@
 <template>
   <div class="enrolled-course-page">
-    <div class="header" v-if="courseMeta">{{ courseMeta.code }}: {{ courseMeta.title }}</div>
+    <div class="header" v-if="courseMeta">{{ course.code }}: {{ course.title }}</div>
     <hr>
     <DiscussionInput
       class="new-post"
@@ -48,6 +48,9 @@ export default {
     },
     courseMeta() {
       return this.$store.courses.getters.courseMeta[this.courseGuid];
+    },
+    course() {
+      return this.courseMeta.enrollment;
     },
   },
   watch: {

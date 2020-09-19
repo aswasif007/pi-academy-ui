@@ -1,42 +1,43 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getEnrolledCourses, getAllCourses, getCourseMeta } from '../services/course-service';
+import { getObjFromArray } from '../utils';
+import { Course, Enrollment, EnrollmentMeta } from '../resources/course';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    enrolledCourses: [],
-    allCourses: [],
-    courseMeta: {},
+    courseObjs: {},
+    enrollmentObjs: {},
+    enrollmentMetaObjs: {},
   },
   mutations: {
-    setEnrolledCourses(state, courses) {
-      state.enrolledCourses = courses;
+    ADD_COURSES(state, courses) {
+      state.courseObjs = {...state.courseObjs, ...getObjFromArray(courses, 'guid')};
     },
-    setAllCourses(state, courses) {
-      state.allCourses = courses;
+    ADD_ENROLLMENTS(state, enrollments) {
+      state.enrollmentObjs = {...state.enrollmentObjs, ...getObjFromArray(enrollments, 'guid')};
     },
-    setCourseMeta(state, meta) {
-      state.courseMeta = {...state.courseMeta, [meta.guid]: meta};
+    ADD_ENROLLMENT_META(state, metaObjs) {
+      state.enrollmentMetaObjs = {...state.enrollmentMetaObjs, ...getObjFromArray(metaObjs, 'guid')};
     }
   },
   actions: {
-    async reloadEnrolledCourses({ commit }) {
-      commit('setEnrolledCourses', await getEnrolledCourses());
+    async reloadEnrolledCourses(store) {
+      await Enrollment.getMany();
     },
-    async reloadAllCourses({ commit }) {
-      commit('setAllCourses', await getAllCourses());
+    async reloadAllCourses(store) {
+      await Course.getMany();
     },
     async reloadCourseMeta({ commit }, courseGuid) {
-      commit('setCourseMeta', await getCourseMeta(courseGuid));
-    }
+      await EnrollmentMeta.getOne(courseGuid);
+    },
   },
   modules: {
   },
   getters: {
-    enrolledCourses: state => state.enrolledCourses,
-    allCourses: state => state.allCourses,
-    courseMeta: state => state.courseMeta,
+    enrolledCourses: state => Object.values(state.enrollmentObjs),
+    allCourses: state => Object.values(state.courseObjs),
+    courseMeta: state => state.enrollmentMetaObjs,
   },
 });

@@ -1,4 +1,4 @@
-import { Data } from '.';
+import { Data, DataList } from '.';
 import faker from 'faker';
 import users from '../store/users';
 
@@ -37,6 +37,12 @@ class User extends Data {
   }
 }
 
+
+class UserList extends DataList {
+  static get Type() {
+    return User;
+  }
+}
 
 class UserProfile extends Data {
   get SCHEMA() {
@@ -100,6 +106,70 @@ const fakeUsers = [
     email: faker.internet.email(),
     avatar: faker.internet.avatar(),
     category: 'Professor',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
+  },
+  {
+    guid: faker.random.uuid(),
+    username: faker.internet.userName(),
+    name: faker.name.findName(),
+    email: faker.internet.email(),
+    avatar: faker.internet.avatar(),
+    category: 'Student',
   }
 ];
 
@@ -146,4 +216,4 @@ const fakeProfiles = [
   },
 ];
 
-export { User, UserProfile, fakeUsers, fakeProfiles };
+export { User, UserProfile, UserList, fakeUsers, fakeProfiles };
