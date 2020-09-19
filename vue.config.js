@@ -21,4 +21,8 @@ module.exports = {
       }
     }
   },
+  pwa: {
+    name: 'Pi Academy',
+    themeColor: '#376996',
+  }
 };
