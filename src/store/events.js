@@ -2,25 +2,36 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { getRecentEvents } from '../services/event-service';
 
+import { Event } from '../resources/event';
+import { getObjFromArray } from '../utils';
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    recentEvents: [],
+    recentEventGuids: [],
+    eventObjs: {},
   },
   mutations: {
-    setRecentEvents(state, event) {
-      state.recentEvents = event;
+    ADD_EVENTS(state, events) {
+      state.eventObjs = {...state.eventObjs, ...getObjFromArray(events, 'guid')};
+    },
+    SET_RECENT_EVENT_GUIDS(state, guids) {
+      state.recentEventGuids = guids;
     },
   },
   actions: {
-    async reloadRecentEvents({ commit }) {
-      commit('setRecentEvents', await getRecentEvents());
+    async reloadRecentEvents(store) {
+      const objs = await Event.getRecent();
+      store.commit('SET_RECENT_EVENT_GUIDS', objs.map(ob => ob.guid));
     },
   },
   modules: {
   },
   getters: {
-    recentEvents: state => state.recentEvents,
+    recentEvents: state => {
+      const events = state.recentEventGuids.map(guid => state.eventObjs[guid]);
+      return events;
+    },
   },
 });

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { getHomeThreads, getCourseThread, addThreadComment, addThread } from '../services/discussion-service';
+
 import { DiscussionThread, Discussion } from '../resources/discussion';
 import { getObjFromArray } from '../utils';
 

@@ -61,7 +61,6 @@ class Enrollment extends Data {
   static getMany() {
     return new Promise(resolve => {
       const objs = fakeEnrollments.map(enr => new Enrollment(enr));
-      console.log(objs);
       resolve(objs);
     });
   }
@@ -227,4 +226,5 @@ export {
   Course,
   Enrollment,
   EnrollmentMeta,
+  fakeEnrollments,
 };

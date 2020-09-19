@@ -14,9 +14,9 @@
       <TextContent v-if="event.description" class="text" size="sm">
         {{ event.description }}
       </TextContent>
-      <TextContent v-if="event.datetime" class="text" size="md">
-        <span>{{ event.datetime | date }}</span><br>
-        <span>{{ event.datetime | time }}</span>
+      <TextContent v-if="event.schedule" class="text" size="md">
+        <span>{{ event.schedule | date }}</span><br>
+        <span>{{ event.schedule | time }}</span>
       </TextContent>
     </div>
     <hr>
