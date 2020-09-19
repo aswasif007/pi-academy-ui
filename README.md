@@ -1,19 +1,13 @@
-# 
+<img src="./src/assets/icons/pi-academy.svg" width="200" height="200">
 
-## Project setup
-```
-npm install
-```
+# Pi Academy Web
+A PWA app for Pi Academy.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
+## Setup
+```bash
+docker-compose build
+docker-compose up
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Dependencies
+- Pi Academy Rest API
