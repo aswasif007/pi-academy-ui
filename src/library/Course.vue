@@ -109,7 +109,7 @@ export default {
   .section:before {
     content: '';
     position: absolute;
-    top: 8px;
+    top: calc(50% - 4px);
     left: calc(var(--xs) * -1 - 3px);
     width: 8px;
     height: 8px;
