@@ -76,8 +76,11 @@ export default {
   display: flex;
   position: relative;
 
+  .right {
+    width: 100%;
+  }
+
   .left, .right {
-    width: 50%;
     padding: 4px 8px;
     display: flex;
     padding: 4px var(--xxxs);
