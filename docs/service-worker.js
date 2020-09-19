@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.131b820458b656e687c62a5ff995f416.js"
+  "precache-manifest.3531550eec18c75dbef12b7e1decc8b4.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pi-academy-web"});

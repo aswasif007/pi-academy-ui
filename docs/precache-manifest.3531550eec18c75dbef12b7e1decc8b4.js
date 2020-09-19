@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "fonts/RedRose-Regular.dc79ca16.ttf"
   },
   {
-    "revision": "d720c24b6ab86aa9e2cf637f9acb577e",
+    "revision": "f5c34607d3bf6afb788e873c613bfe30",
     "url": "index.html"
   },
   {
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "js/chunk-vendors.a13ecf60.js"
   },
   {
-    "revision": "35f4cf9ffa4f05ede10c135214a4a7b2",
+    "revision": "f85a15b1b918d481fba60f9e7da75f21",
     "url": "manifest.json"
   },
   {
