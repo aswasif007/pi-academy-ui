@@ -59,6 +59,7 @@ export default {
   methods: {
     submit(e) {
       console.log('Email:', this.email, ', Password:', this.password);
+      this.$router.push({ name: 'home' });
     }
   }
 }

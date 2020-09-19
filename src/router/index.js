@@ -18,6 +18,7 @@ const routes = [
   {
     path: '/home',
     name: 'home',
+    alias: '/',
     component: Home,
   },
   {
