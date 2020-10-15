@@ -9,5 +9,5 @@ docker-compose build
 docker-compose up
 ```
 
-## Dependencies
-- Pi Academy Rest API
+## Related Repositories
+- [Pi Academy API](https://github.com/aswasif007/pi-academy-api)
